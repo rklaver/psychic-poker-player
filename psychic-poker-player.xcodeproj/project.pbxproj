@@ -18,6 +18,7 @@
 		42B0E6B8162029C40077B48A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B0E6B7162029C40077B48A /* Default-568h@2x.png */; };
 		42B0E6BB162029C40077B48A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B0E6B9162029C40077B48A /* MainStoryboard.storyboard */; };
 		42B0E6BE162029C40077B48A /* PPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B0E6BD162029C40077B48A /* PPPViewController.m */; };
+		42B0E6CA16202F730077B48A /* PPPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B0E6C916202F730077B48A /* PPPCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		42B0E6BA162029C40077B48A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		42B0E6BC162029C40077B48A /* PPPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPPViewController.h; sourceTree = "<group>"; };
 		42B0E6BD162029C40077B48A /* PPPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPViewController.m; sourceTree = "<group>"; };
+		42B0E6C816202F730077B48A /* PPPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCard.h; sourceTree = "<group>"; };
+		42B0E6C916202F730077B48A /* PPPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,7 @@
 			children = (
 				42B0E6C516202A970077B48A /* App Delegate */,
 				42B0E6C616202AAE0077B48A /* Images */,
+				42B0E6C716202F4E0077B48A /* Model */,
 				42B0E6A8162029C40077B48A /* Supporting Files */,
 				42B0E6C416202A780077B48A /* View Controllers */,
 			);
@@ -129,6 +133,15 @@
 				42B0E6B5162029C40077B48A /* Default@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		42B0E6C716202F4E0077B48A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42B0E6C816202F730077B48A /* PPPCard.h */,
+				42B0E6C916202F730077B48A /* PPPCard.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +214,7 @@
 				42B0E6AE162029C40077B48A /* main.m in Sources */,
 				42B0E6B2162029C40077B48A /* PPPAppDelegate.m in Sources */,
 				42B0E6BE162029C40077B48A /* PPPViewController.m in Sources */,
+				42B0E6CA16202F730077B48A /* PPPCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
