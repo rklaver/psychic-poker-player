@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		424CBA7D16217B1300D3EF71 /* PPPCardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CBA7C16217B1300D3EF71 /* PPPCardCollection.m */; };
+		424CBA821621822800D3EF71 /* PPPCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CBA811621822800D3EF71 /* PPPCardDeck.m */; };
 		42B0E6A2162029C40077B48A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B0E6A1162029C40077B48A /* UIKit.framework */; };
 		42B0E6A4162029C40077B48A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B0E6A3162029C40077B48A /* Foundation.framework */; };
 		42B0E6A6162029C40077B48A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B0E6A5162029C40077B48A /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		424CBA7B16217B1300D3EF71 /* PPPCardCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCardCollection.h; sourceTree = "<group>"; };
 		424CBA7C16217B1300D3EF71 /* PPPCardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPCardCollection.m; sourceTree = "<group>"; };
+		424CBA801621822800D3EF71 /* PPPCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCardDeck.h; sourceTree = "<group>"; };
+		424CBA811621822800D3EF71 /* PPPCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPCardDeck.m; sourceTree = "<group>"; };
 		42B0E69D162029C40077B48A /* psychic-poker-player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "psychic-poker-player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B0E6A1162029C40077B48A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42B0E6A3162029C40077B48A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				42B0E6C916202F730077B48A /* PPPCard.m */,
 				424CBA7B16217B1300D3EF71 /* PPPCardCollection.h */,
 				424CBA7C16217B1300D3EF71 /* PPPCardCollection.m */,
+				424CBA801621822800D3EF71 /* PPPCardDeck.h */,
+				424CBA811621822800D3EF71 /* PPPCardDeck.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				42B0E6BE162029C40077B48A /* PPPViewController.m in Sources */,
 				42B0E6CA16202F730077B48A /* PPPCard.m in Sources */,
 				424CBA7D16217B1300D3EF71 /* PPPCardCollection.m in Sources */,
+				424CBA821621822800D3EF71 /* PPPCardDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
