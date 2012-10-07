@@ -8,8 +8,26 @@
 
 #import "PPPCardCollection.h"
 
+typedef NS_ENUM(NSUInteger, PPPCardHandCategory) {
+    PPPCardHandCategoryInvalid = 0,
+    PPPCardHandCategoryNoPair,
+    PPPCardHandCategoryOnePair,
+    PPPCardHandCategoryTwoPair,
+    PPPCardHandCategoryThreeOfAKind,
+    PPPCardHandCategoryStraight,
+    PPPCardHandCategoryFlush,
+    PPPCardHandCategoryFullHouse,
+    PPPCardHandCategoryFourOfAKind,
+    PPPCardHandCategoryStraightFlush,
+    PPPCardHandCategoryMax
+};
+
 @class PPPCard;
 
 @interface PPPCardHand : PPPCardCollection
+
+@property (nonatomic, readonly) PPPCardHandCategory highestCategory;
+
+- (NSComparisonResult)compare:(PPPCardHand *)otherHand;
 
 @end
