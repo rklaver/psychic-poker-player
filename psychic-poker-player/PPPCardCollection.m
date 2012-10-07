@@ -10,15 +10,29 @@
 
 #import "PPPCard.h"
 
+#pragma mark Hidden interface
+
+@interface PPPCardCollection () {
+    NSMutableArray *_cards;
+}
+
+@end
+
 @implementation PPPCardCollection
+
+#pragma mark Property methods
+
+- (NSArray *)cards {
+    return [NSArray arrayWithArray:_cards];
+}
 
 #pragma mark Instance methods
 
-- (id)initWithCards:(NSMutableArray *)cards {
+- (id)initWithCards:(NSArray *)cards {
     self = [super init];
     
     if (self) {
-        self.cards = cards;
+        _cards = [cards mutableCopy];
     }
     
     return self;
@@ -41,15 +55,35 @@
     return [self initWithCards:cards];
 }
 
+- (PPPCard *)removeFirstCard {
+    if ([_cards count] > 0) {
+        PPPCard *card = _cards[0];
+        [_cards removeObjectAtIndex:0];
+        
+        return card;
+    }
+    
+    return nil;
+}
+
+- (void)replaceCardAtIndex:(NSUInteger)index withCard:(PPPCard *)card {    
+    if (card) {
+        [_cards replaceObjectAtIndex:index withObject:card];
+    }
+}
+
 #pragma mark -
 #pragma mark NSObject overridden methods
 
 - (id)init {
-    return [self initWithCards:[NSMutableArray arrayWithCapacity:0]];
+    return [self initWithCards:[NSArray array]];
 }
 
+#pragma mark -
+#pragma mark NSObject protocol methods
+
 - (NSString *)description {
-    NSArray *descriptions = [self.cards valueForKey:@"description"];
+    NSArray *descriptions = [_cards valueForKey:@"description"];
     return [descriptions componentsJoinedByString:@" "];
 }
 

@@ -8,13 +8,8 @@
 
 #import "PPPCardCollection.h"
 
-@class PPPCardDeck;
 @class PPPCard;
 
 @interface PPPCardHand : PPPCardCollection
-
-@property (nonatomic, strong) PPPCardDeck *deck;
-
-- (PPPCard *)replaceCardAtIndexByCardFromDeck:(NSUInteger)index;
 
 @end

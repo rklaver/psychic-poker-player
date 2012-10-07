@@ -41,5 +41,8 @@ typedef NS_ENUM(NSUInteger, PPPCardSuit) {
 - (id)initWithNumber:(PPPCardNumber)number suit:(PPPCardSuit)suit;
 - (id)initWithString:(NSString *)cardString;
 - (NSString *)name;
+- (NSComparisonResult)compareWithAcesLow:(PPPCard *)otherCard;
+- (NSComparisonResult)compareWithAcesHigh:(PPPCard *)otherCard;
+- (BOOL)isSequentiallySucceededByCard:(PPPCard *)otherCard;
 
 @end

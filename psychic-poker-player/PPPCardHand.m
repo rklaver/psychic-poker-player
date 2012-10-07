@@ -9,7 +9,6 @@
 #import "PPPCardHand.h"
 
 #import "PPPCard.h"
-#import "PPPCardDeck.h"
 
 #pragma mark Constants
 
@@ -17,35 +16,15 @@
 
 @implementation PPPCardHand
 
-#pragma mark Instance methods
-
-- (PPPCard *)replaceCardAtIndexByCardFromDeck:(NSUInteger)index {
-    if (!self.deck || index >= self.cards.count) {
-        return nil;
-    }
-    
-    PPPCard *card = [self.deck draw];
-
-    if (card) {
-        [self.cards replaceObjectAtIndex:index withObject:card];
-    }
-
-    return card;
-}
-
 #pragma mark -
 #pragma mark PPPCardCollection overridden methods
 
-- (id)initWithCards:(NSMutableArray *)cards {
-    self = [super initWithCards:cards];
-    
-    if (self) {
-        if (self.cards.count != kNumberOfCardsInHand) {
-            self = nil;
-        }
+- (id)initWithCards:(NSArray *)cards {
+    if (cards.count == kNumberOfCardsInHand) {
+        return [super initWithCards:cards];
     }
     
-    return self;
+    return nil;
 }
 
 @end

@@ -60,6 +60,42 @@ static NSDictionary *kCardSuitNames;
     return @"Invalid card";
 }
 
+- (NSComparisonResult)compareWithAcesLow:(PPPCard *)otherCard {
+    if (self.number == PPPCardNumberAce || otherCard.number == PPPCardNumberAce) {
+        if (otherCard.number != PPPCardNumberAce) {
+            return NSOrderedAscending;
+        }
+        
+        if (self.number != PPPCardNumberAce) {
+            return NSOrderedDescending;
+        }
+        
+        return NSOrderedSame;
+    }
+    
+    return [self compareWithAcesHigh:otherCard];
+}
+
+- (NSComparisonResult)compareWithAcesHigh:(PPPCard *)otherCard {
+    if (self.number < otherCard.number) {
+        return NSOrderedAscending;
+    }
+    
+    if (self.number > otherCard.number) {
+        return NSOrderedDescending;
+    }
+    
+    return NSOrderedSame;
+}
+
+- (BOOL)isSequentiallySucceededByCard:(PPPCard *)otherCard {
+    if (self.number == PPPCardNumberKing) {
+        return otherCard.number == PPPCardNumberAce;
+    }
+    
+    return otherCard.number == self.number + 1;
+}
+
 #pragma mark -
 #pragma mark NSObject overridden methods
 
@@ -127,6 +163,9 @@ static NSDictionary *kCardSuitNames;
 - (id)init {
     return [self initWithNumber:PPPCardNumberInvalid suit:PPPCardSuitInvalid];
 }
+
+#pragma mark -
+#pragma mark NSObject protocol methods
 
 - (NSString *)description {
     NSString *numberString = kCardNumberInverseStringMapping[@(self.number)];

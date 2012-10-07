@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPPCard;
+
 @interface PPPCardCollection : NSObject
 
-@property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, readonly) NSArray *cards;
 
-- (id)initWithCards:(NSMutableArray *)cards;
+- (id)initWithCards:(NSArray *)cards;
 - (id)initWithString:(NSString *)string;
+- (PPPCard *)removeFirstCard;
+- (void)replaceCardAtIndex:(NSUInteger)index withCard:(PPPCard *)card;
 
 @end
