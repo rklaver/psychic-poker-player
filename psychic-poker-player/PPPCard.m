@@ -18,6 +18,8 @@ static NSDictionary *kCardSuitInverseStringMapping;
 static NSDictionary *kCardNumberNames;
 static NSDictionary *kCardSuitNames;
 
+#pragma mark -
+
 @implementation PPPCard
 
 #pragma mark Instance methods

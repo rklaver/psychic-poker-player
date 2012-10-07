@@ -18,6 +18,8 @@
 
 @end
 
+#pragma mark -
+
 @implementation PPPCardCollection
 
 #pragma mark Property methods
