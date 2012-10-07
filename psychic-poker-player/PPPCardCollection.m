@@ -12,9 +12,9 @@
 
 #pragma mark Hidden interface
 
-@interface PPPCardCollection () {
-    NSMutableArray *_cards;
-}
+@interface PPPCardCollection ()
+
+@property (nonatomic, strong) NSMutableArray *mutableCards;
 
 @end
 
@@ -23,7 +23,13 @@
 #pragma mark Property methods
 
 - (NSArray *)cards {
-    return [NSArray arrayWithArray:_cards];
+    return [NSArray arrayWithArray:self.mutableCards];
+}
+
+#pragma mark KVO Class methods
+
++ (NSSet *)keyPathsForValuesAffectingCards {
+    return [NSSet setWithObject:@"mutableCards"];
 }
 
 #pragma mark Instance methods
@@ -32,7 +38,7 @@
     self = [super init];
     
     if (self) {
-        _cards = [cards mutableCopy];
+        self.mutableCards = [cards mutableCopy];
     }
     
     return self;
@@ -56,9 +62,9 @@
 }
 
 - (PPPCard *)removeFirstCard {
-    if ([_cards count] > 0) {
-        PPPCard *card = _cards[0];
-        [_cards removeObjectAtIndex:0];
+    if ([self.mutableCards count] > 0) {
+        PPPCard *card = self.mutableCards[0];
+        [self removeObjectFromMutableCardsAtIndex:0];
         
         return card;
     }
@@ -68,8 +74,22 @@
 
 - (void)replaceCardAtIndex:(NSUInteger)index withCard:(PPPCard *)card {    
     if (card) {
-        [_cards replaceObjectAtIndex:index withObject:card];
+        [self replaceObjectInMutableCardsAtIndex:index withObject:card];
     }
+}
+
+#pragma mark KVO instance methods
+
+- (void)insertObject:(PPPCard *)card inMutableCardsAtIndex:(NSUInteger)index {
+    [self.mutableCards insertObject:card atIndex:index];
+}
+
+- (void)removeObjectFromMutableCardsAtIndex:(NSUInteger)index {
+    [self.mutableCards removeObjectAtIndex:index];
+}
+
+- (void)replaceObjectInMutableCardsAtIndex:(NSUInteger)index withObject:(PPPCard *)card {
+    [self.mutableCards replaceObjectAtIndex:index withObject:card];
 }
 
 #pragma mark -
@@ -83,7 +103,7 @@
 #pragma mark NSObject protocol methods
 
 - (NSString *)description {
-    NSArray *descriptions = [_cards valueForKey:@"description"];
+    NSArray *descriptions = [self.mutableCards valueForKey:@"description"];
     return [descriptions componentsJoinedByString:@" "];
 }
 
