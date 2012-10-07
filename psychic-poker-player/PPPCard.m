@@ -91,8 +91,8 @@ static NSDictionary *kCardSuitNames;
 }
 
 - (BOOL)isSequentiallySucceededByCard:(PPPCard *)otherCard {
-    if (self.number == PPPCardNumberKing) {
-        return otherCard.number == PPPCardNumberAce;
+    if (self.number == PPPCardNumberAce) {
+        return otherCard.number == PPPCardNumberTwo;
     }
     
     return otherCard.number == self.number + 1;
