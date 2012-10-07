@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, PPPCardNumber) {
-    PPPCardNumberAce,
     PPPCardNumberTwo,
     PPPCardNumberThree,
     PPPCardNumberFour,
@@ -22,6 +21,7 @@ typedef NS_ENUM(NSUInteger, PPPCardNumber) {
     PPPCardNumberJack,
     PPPCardNumberQueen,
     PPPCardNumberKing,
+    PPPCardNumberAce,
     PPPCardNumberInvalid
 };
 

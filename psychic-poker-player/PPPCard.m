@@ -64,8 +64,7 @@ static NSDictionary *kCardSuitNames;
 #pragma mark NSObject overridden methods
 
 + (void)initialize {
-    kCardNumberStringMapping = @{@"A": @(PPPCardNumberAce),
-                                 @"2": @(PPPCardNumberTwo),
+    kCardNumberStringMapping = @{@"2": @(PPPCardNumberTwo),
                                  @"3": @(PPPCardNumberThree),
                                  @"4": @(PPPCardNumberFour),
                                  @"5": @(PPPCardNumberFive),
@@ -76,7 +75,8 @@ static NSDictionary *kCardSuitNames;
                                  @"T": @(PPPCardNumberTen),
                                  @"J": @(PPPCardNumberJack),
                                  @"Q": @(PPPCardNumberQueen),
-                                 @"K": @(PPPCardNumberKing)};
+                                 @"K": @(PPPCardNumberKing),
+                                 @"A": @(PPPCardNumberAce)};
     
     kCardSuitStringMapping = @{@"H": @(PPPCardSuitHearts),
                                @"C": @(PPPCardSuitClubs),
@@ -95,8 +95,7 @@ static NSDictionary *kCardSuitNames;
     }];
     kCardSuitInverseStringMapping = suitInverseMapping;
     
-    kCardNumberNames = @{@(PPPCardNumberAce): @"Ace",
-                         @(PPPCardNumberTwo): @"Two",
+    kCardNumberNames = @{@(PPPCardNumberTwo): @"Two",
                          @(PPPCardNumberThree): @"Three",
                          @(PPPCardNumberFour): @"Four",
                          @(PPPCardNumberFive): @"Five",
@@ -107,7 +106,8 @@ static NSDictionary *kCardSuitNames;
                          @(PPPCardNumberTen): @"Ten",
                          @(PPPCardNumberJack): @"Jack",
                          @(PPPCardNumberQueen): @"Queen",
-                         @(PPPCardNumberKing): @"King"};
+                         @(PPPCardNumberKing): @"King",
+                         @(PPPCardNumberAce): @"Ace"};
     
     kCardSuitNames = @{@(PPPCardSuitHearts): @"Hearts",
                        @(PPPCardSuitClubs): @"Clubs",
