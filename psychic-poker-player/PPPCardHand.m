@@ -68,6 +68,7 @@
 
     return result;
 }
+
 #pragma mark Hidden class methods
 
 + (BOOL)cardsAreSequential:(NSArray *)cards {
