@@ -14,6 +14,8 @@
 
 #define kNumberOfCardsInHand 5
 
+static NSDictionary *categoryNames;
+
 #pragma mark Hidden interface
 
 @interface PPPCardHand () {
@@ -41,6 +43,24 @@
     }
     
     return self.cachedHighestCategory;
+}
+
+#pragma mark Class methods
+
++ (NSString *)nameOfCategory:(PPPCardHandCategory)category {
+    if (!categoryNames) {
+        categoryNames = @{@(PPPCardHandCategoryNoPair): @"High card",
+                          @(PPPCardHandCategoryOnePair): @"One pair",
+                          @(PPPCardHandCategoryTwoPair): @"Two pair",
+                          @(PPPCardHandCategoryThreeOfAKind): @"Three of a kind",
+                          @(PPPCardHandCategoryStraight): @"Straight",
+                          @(PPPCardHandCategoryFlush): @"Flush",
+                          @(PPPCardHandCategoryFullHouse): @"Full house",
+                          @(PPPCardHandCategoryFourOfAKind): @"Four of a kind",
+                          @(PPPCardHandCategoryStraightFlush): @"Straight flush"};
+    }
+    
+    return categoryNames[@(category)];
 }
 
 #pragma mark Instance methods

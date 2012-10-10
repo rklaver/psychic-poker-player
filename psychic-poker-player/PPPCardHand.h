@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, PPPCardHandCategory) {
 
 @property (nonatomic, readonly) PPPCardHandCategory highestCategory;
 
++ (NSString *)nameOfCategory:(PPPCardHandCategory)category;
 - (NSComparisonResult)compare:(PPPCardHand *)otherHand;
 
 @end
