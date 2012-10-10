@@ -104,6 +104,16 @@
 #pragma mark -
 #pragma mark NSObject protocol methods
 
+- (id)copyWithZone:(NSZone *)zone {
+    PPPCardCollection *collection = [self.class allocWithZone:zone];
+    collection.mutableCards = [self.mutableCards mutableCopyWithZone:zone];
+    
+    return collection;
+}
+
+#pragma mark -
+#pragma mark NSObject protocol methods
+
 - (NSString *)description {
     NSArray *descriptions = [self.mutableCards valueForKey:@"description"];
     return [descriptions componentsJoinedByString:@" "];

@@ -10,7 +10,7 @@
 
 @class PPPCard;
 
-@interface PPPCardCollection : NSObject
+@interface PPPCardCollection : NSObject <NSCopying>
 
 @property (nonatomic, readonly) NSArray *cards;
 
