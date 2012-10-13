@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422456B81629882C0074184D /* greenfelt.png in Resources */ = {isa = PBXBuildFile; fileRef = 422456B61629882C0074184D /* greenfelt.png */; };
+		422456B91629882C0074184D /* greenfelt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 422456B71629882C0074184D /* greenfelt@2x.png */; };
 		424CBA7D16217B1300D3EF71 /* PPPCardCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CBA7C16217B1300D3EF71 /* PPPCardCollection.m */; };
 		424CBA851621848000D3EF71 /* PPPCardHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CBA841621848000D3EF71 /* PPPCardHand.m */; };
 		424DD9E4162347C400BDDA62 /* PPPSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 424DD9E3162347C400BDDA62 /* PPPSolver.m */; };
@@ -20,11 +22,14 @@
 		42B0E6B6162029C40077B48A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B0E6B5162029C40077B48A /* Default@2x.png */; };
 		42B0E6B8162029C40077B48A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B0E6B7162029C40077B48A /* Default-568h@2x.png */; };
 		42B0E6BB162029C40077B48A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B0E6B9162029C40077B48A /* MainStoryboard.storyboard */; };
-		42B0E6BE162029C40077B48A /* PPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B0E6BD162029C40077B48A /* PPPViewController.m */; };
+		42B0E6BE162029C40077B48A /* PPPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B0E6BD162029C40077B48A /* PPPMainViewController.m */; };
 		42B0E6CA16202F730077B48A /* PPPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B0E6C916202F730077B48A /* PPPCard.m */; };
+		42FC36BA16298FA90087A49B /* PPPSelectCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC36B916298FA90087A49B /* PPPSelectCardsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422456B61629882C0074184D /* greenfelt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenfelt.png; sourceTree = "<group>"; };
+		422456B71629882C0074184D /* greenfelt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenfelt@2x.png"; sourceTree = "<group>"; };
 		424CBA7B16217B1300D3EF71 /* PPPCardCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCardCollection.h; sourceTree = "<group>"; };
 		424CBA7C16217B1300D3EF71 /* PPPCardCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPCardCollection.m; sourceTree = "<group>"; };
 		424CBA831621848000D3EF71 /* PPPCardHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCardHand.h; sourceTree = "<group>"; };
@@ -45,10 +50,12 @@
 		42B0E6B5162029C40077B48A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		42B0E6B7162029C40077B48A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		42B0E6BA162029C40077B48A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		42B0E6BC162029C40077B48A /* PPPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPPViewController.h; sourceTree = "<group>"; };
-		42B0E6BD162029C40077B48A /* PPPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPViewController.m; sourceTree = "<group>"; };
+		42B0E6BC162029C40077B48A /* PPPMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPPMainViewController.h; sourceTree = "<group>"; };
+		42B0E6BD162029C40077B48A /* PPPMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPPMainViewController.m; sourceTree = "<group>"; };
 		42B0E6C816202F730077B48A /* PPPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPCard.h; sourceTree = "<group>"; };
 		42B0E6C916202F730077B48A /* PPPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPCard.m; sourceTree = "<group>"; };
+		42FC36B816298FA90087A49B /* PPPSelectCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPSelectCardsViewController.h; sourceTree = "<group>"; };
+		42FC36B916298FA90087A49B /* PPPSelectCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPSelectCardsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				42B0E6B9162029C40077B48A /* MainStoryboard.storyboard */,
-				42B0E6BC162029C40077B48A /* PPPViewController.h */,
-				42B0E6BD162029C40077B48A /* PPPViewController.m */,
+				42B0E6BC162029C40077B48A /* PPPMainViewController.h */,
+				42B0E6BD162029C40077B48A /* PPPMainViewController.m */,
+				42FC36B816298FA90087A49B /* PPPSelectCardsViewController.h */,
+				42FC36B916298FA90087A49B /* PPPSelectCardsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -140,6 +149,8 @@
 				42B0E6B7162029C40077B48A /* Default-568h@2x.png */,
 				42B0E6B3162029C40077B48A /* Default.png */,
 				42B0E6B5162029C40077B48A /* Default@2x.png */,
+				422456B61629882C0074184D /* greenfelt.png */,
+				422456B71629882C0074184D /* greenfelt@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -216,6 +227,8 @@
 				42B0E6B6162029C40077B48A /* Default@2x.png in Resources */,
 				42B0E6B8162029C40077B48A /* Default-568h@2x.png in Resources */,
 				42B0E6BB162029C40077B48A /* MainStoryboard.storyboard in Resources */,
+				422456B81629882C0074184D /* greenfelt.png in Resources */,
+				422456B91629882C0074184D /* greenfelt@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,11 +241,12 @@
 			files = (
 				42B0E6AE162029C40077B48A /* main.m in Sources */,
 				42B0E6B2162029C40077B48A /* PPPAppDelegate.m in Sources */,
-				42B0E6BE162029C40077B48A /* PPPViewController.m in Sources */,
+				42B0E6BE162029C40077B48A /* PPPMainViewController.m in Sources */,
 				42B0E6CA16202F730077B48A /* PPPCard.m in Sources */,
 				424CBA7D16217B1300D3EF71 /* PPPCardCollection.m in Sources */,
 				424CBA851621848000D3EF71 /* PPPCardHand.m in Sources */,
 				424DD9E4162347C400BDDA62 /* PPPSolver.m in Sources */,
+				42FC36BA16298FA90087A49B /* PPPSelectCardsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
