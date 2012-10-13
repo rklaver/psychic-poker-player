@@ -17,6 +17,8 @@
 @property (nonatomic, strong) PPPCardCollection *deck;
 @property (nonatomic, strong) PPPCardHand *hand;
 @property (weak, nonatomic) IBOutlet UILabel *bestCategoryLabel;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *deckCardImages;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *handCardImages;
 
 - (IBAction)selectCardsButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)playButtonPressed:(UIBarButtonItem *)sender;
