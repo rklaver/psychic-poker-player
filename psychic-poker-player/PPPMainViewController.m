@@ -119,8 +119,6 @@
     self.handCardImages = [self.handCardImages sortedArrayUsingComparator:^NSComparisonResult(UIImageView *view1, UIImageView *view2) {
         return [@(view1.frame.origin.x)compare:@(view2.frame.origin.x)];
     }];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greenfelt"]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
