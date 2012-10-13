@@ -17,6 +17,6 @@
 @property (nonatomic, retain) PPPCardHand *hand;
 
 - (id)initWithDeck:(PPPCardCollection *)deck hand:(PPPCardHand *)hand;
-- (PPPCardHand *)bestHandIn5CardDrawPokerGame;
+- (NSArray *)bestPlayIn5CardDrawPokerGameWithResultingHand:(PPPCardHand **)bestHand;
 
 @end

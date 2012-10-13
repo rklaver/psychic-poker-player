@@ -36,8 +36,9 @@
     return self;
 }
 
-- (PPPCardHand *)bestHandIn5CardDrawPokerGame {
-    PPPCardHand *bestHand = nil;
+- (NSArray *)bestPlayIn5CardDrawPokerGameWithResultingHand:(PPPCardHand **)bestHand {
+    *bestHand = nil;
+    NSArray *bestPlay;
     
     NSMutableArray *allPossiblePlays = [[NSMutableArray alloc] init];
     for (NSUInteger numCards = 0; numCards <= 5; numCards++) {
@@ -52,12 +53,13 @@
             [playHand replaceCardAtIndex:cardToExchange.unsignedIntegerValue withCard:[playDeck removeFirstCard]];
         }
         
-        if (bestHand == nil || [bestHand compare:playHand] == NSOrderedAscending) {
-            bestHand = playHand;
+        if (*bestHand == nil || [*bestHand compare:playHand] == NSOrderedAscending) {
+            *bestHand = playHand;
+            bestPlay = cardsToExchange;
         }
     }
     
-    return bestHand;
+    return bestPlay;
 }
 
 #pragma mark Hidden class methods
