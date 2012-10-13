@@ -69,4 +69,11 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark -
+#pragma mark UIViewController overridden methods
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+
 @end

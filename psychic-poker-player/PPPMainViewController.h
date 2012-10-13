@@ -11,8 +11,11 @@
 @class PPPCardCollection;
 @class PPPCardHand;
 
-@interface PPPMainViewController : UIViewController
+@interface PPPMainViewController : UIViewController {
+    BOOL isAnimating;
+}
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectCardsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
 @property (nonatomic, strong) PPPCardCollection *deck;
 @property (nonatomic, strong) PPPCardHand *hand;

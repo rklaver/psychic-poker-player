@@ -34,6 +34,13 @@
     NSArray *deckCards = self.deck.cards;
     NSUInteger index = 0;
     
+    if (bestPlay.count > 0) {
+        isAnimating = YES;
+        self.selectCardsButton.enabled = NO;
+    } else {
+        self.bestCategoryLabel.text = [PPPCardHand nameOfCategory:bestHand.highestCategory];
+    }
+    
     for (NSNumber *cardToExchangeNumber in bestPlay) {
         NSUInteger cardToExchange = cardToExchangeNumber.unsignedIntegerValue;
         
@@ -60,6 +67,11 @@
             
             if (index == bestPlay.count - 1) {
                 self.bestCategoryLabel.text = [PPPCardHand nameOfCategory:bestHand.highestCategory];
+                
+                isAnimating = NO;
+                self.selectCardsButton.enabled = YES;
+                
+                [UIViewController attemptRotationToDeviceOrientation];
             }
         }];
 
@@ -111,7 +123,16 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greenfelt"]];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    if (isAnimating) {
+        return toInterfaceOrientation == self.interfaceOrientation;
+    } else {
+        return YES;
+    }
+}
+
 - (void)viewDidUnload {
+    [self setSelectCardsButton:nil];
     [self setPlayButton:nil];
     [self setBestCategoryLabel:nil];
     [self setDeckCardImages:nil];
