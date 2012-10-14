@@ -54,7 +54,7 @@
 - (BOOL)selectCardsString:(NSString *)cardsString {
     PPPCardCollection *deck = [[PPPCardCollection alloc] initWithString:cardsString];
     
-    if (deck && deck.cards.count == 10) {
+    if (deck && [deck cardCount] == 10) {
         PPPMainViewController *mainController = (PPPMainViewController *)self.navigationController.presentingViewController;
         [mainController setNewDeck:deck];
         

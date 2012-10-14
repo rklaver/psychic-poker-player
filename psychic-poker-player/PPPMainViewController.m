@@ -90,7 +90,7 @@
 // This method is called by the select cards controller,
 // it will set up the deck and hand from a deck of 10 cards
 - (void)setNewDeck:(PPPCardCollection *)deck {
-    if (deck.cards.count == 10) {
+    if ([deck cardCount] == 10) {
         NSMutableArray *handCards = [[NSMutableArray alloc] initWithCapacity:5];
         for (int i = 0; i < 5; i++) {
             [handCards addObject:[deck removeFirstCard]];

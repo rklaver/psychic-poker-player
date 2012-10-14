@@ -16,6 +16,7 @@
 
 - (id)initWithCards:(NSArray *)cards;
 - (id)initWithString:(NSString *)string;
+- (NSUInteger)cardCount;
 - (PPPCard *)removeFirstCard;
 - (void)replaceCardAtIndex:(NSUInteger)index withCard:(PPPCard *)card;
 

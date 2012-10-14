@@ -68,6 +68,11 @@
     return [self initWithCards:cards];
 }
 
+// Returns the number of cards in this collection
+- (NSUInteger)cardCount {
+    return self.mutableCards.count;
+}
+
 // Remove the first card in the selection of cards, e.g. as drawing the first card from a deck
 - (PPPCard *)removeFirstCard {
     if ([self.mutableCards count] > 0) {
