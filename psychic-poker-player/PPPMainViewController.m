@@ -21,10 +21,14 @@
 
 #pragma mark Instance methods
 
+// Show the modal to have the user select the set of cards
 - (IBAction)selectCardsButtonPressed:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"selectCards" sender:self];
 }
 
+// When the play button is pressed, solve the game for the given
+// set of cards, then show this as an animation to the user,
+// then show a text displaying the best hand category
 - (IBAction)playButtonPressed:(UIBarButtonItem *)sender {
     PPPSolver *solver = [[PPPSolver alloc] initWithDeck:self.deck hand:self.hand];
     PPPCardHand *bestHand;
@@ -71,6 +75,8 @@
                 isAnimating = NO;
                 self.selectCardsButton.enabled = YES;
                 
+                // If the user rotated the device during the animation,
+                // make sure the rotation actually happens now
                 [UIViewController attemptRotationToDeviceOrientation];
             }
         }];
@@ -81,6 +87,8 @@
     self.playButton.enabled = NO;
 }
 
+// This method is called by the select cards controller,
+// it will set up the deck and hand from a deck of 10 cards
 - (void)setNewDeck:(PPPCardCollection *)deck {
     if (deck.cards.count == 10) {
         NSMutableArray *handCards = [[NSMutableArray alloc] initWithCapacity:5];
@@ -112,6 +120,8 @@
 #pragma mark UIViewController overridden methods
 
 - (void)viewDidLoad {
+    // For some reason the order within an outlet collection set in the storyboard
+    // is not preserved, so order the objects by their x coordinates manually
     self.deckCardImages = [self.deckCardImages sortedArrayUsingComparator:^NSComparisonResult(UIImageView *view1, UIImageView *view2) {
         return [@(view1.frame.origin.x)compare:@(view2.frame.origin.x)];
     }];
@@ -121,6 +131,8 @@
     }];
 }
 
+// Disallow rotation when an animation is being performed,
+// because the cards will end up in the wrong place.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     if (isAnimating) {
         return toInterfaceOrientation == self.interfaceOrientation;

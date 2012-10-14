@@ -25,6 +25,7 @@
 
 #pragma mark Instance methods
 
+// Designated initializer 
 - (id)initWithDeck:(PPPCardCollection *)deck hand:(PPPCardHand *)hand {
     self = [super init];
     
@@ -36,6 +37,8 @@
     return self;
 }
 
+// Go through all possible plays in the game and return both the the array of plays that is
+// best and the hand resulting from it.
 - (NSArray *)bestPlayIn5CardDrawPokerGameWithResultingHand:(PPPCardHand **)bestHand {
     *bestHand = nil;
     NSArray *bestPlay;
@@ -64,11 +67,14 @@
 
 #pragma mark Hidden class methods
 
+// Returns an array of arrays, containing all possible plays for exchanging numCards number of cards
 + (NSArray *)possiblePlaysByExchangingNumberOfCards:(NSUInteger)numCards totalCards:(NSUInteger)totalCards {
     NSMutableArray *plays = [[NSMutableArray alloc] init];
     
     if (numCards <= totalCards) {
         if (numCards > 0) {
+            // This is a recursively called block, which has as parameters the "path" of exchanged cards
+            // up to now and the number of cards that still need to be removed
             void (^__block nextIterationOfFindingIndexCombinations)(NSArray *, NSUInteger) = ^(NSArray *path, NSUInteger cardsToRemove) {
                 for (NSUInteger index = 0; index < totalCards - cardsToRemove + 1; index++) {
                     NSNumber *indexNumber = @(index);

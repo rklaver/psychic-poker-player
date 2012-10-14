@@ -19,6 +19,7 @@
 
 #pragma mark Property methods
 
+// Lazy initialization of set of cards given in problem description
 - (NSArray *)presetCards {
     if (!_presetCards) {
         _presetCards = @[@"TH JH QC QD QS QH KH AH 2S 6S",
@@ -42,6 +43,7 @@
     return self.presetCards.count;
 }
 
+// Populate table view cells with preset card sets
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"cardsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -57,6 +59,8 @@
 #pragma mark -
 #pragma mark UITableViewDelegate protocol methods
 
+// If a set of cards is selected, inform the main view controller
+// and dismiss this view
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     PPPCardCollection *deck = [[PPPCardCollection alloc] initWithString:cell.textLabel.text];

@@ -24,6 +24,7 @@ static NSDictionary *kCardSuitNames;
 
 #pragma mark Instance methods
 
+// This is the designated initializer
 - (id)initWithNumber:(PPPCardNumber)number suit:(PPPCardSuit)suit {
     self = [super init];
     
@@ -35,6 +36,7 @@ static NSDictionary *kCardSuitNames;
     return self;
 }
 
+// Parse a 2-character string using a regular expression
 - (id)initWithString:(NSString *)cardString {
     NSTextCheckingResult *result = [kCardStringRegexp firstMatchInString:cardString options:0 range:NSMakeRange(0, [cardString length])];
     
@@ -51,6 +53,7 @@ static NSDictionary *kCardSuitNames;
     return nil;
 }
 
+// Represent the card as a human readable name
 - (NSString *)name {
     NSString *numberName = kCardNumberNames[@(self.number)];
     NSString *suitName = kCardSuitNames[@(self.suit)];
@@ -62,6 +65,7 @@ static NSDictionary *kCardSuitNames;
     return @"Invalid card";
 }
 
+// Compare to another card, aces are low
 - (NSComparisonResult)compareWithAcesLow:(PPPCard *)otherCard {
     if (self.number == PPPCardNumberAce || otherCard.number == PPPCardNumberAce) {
         if (otherCard.number != PPPCardNumberAce) {
@@ -78,6 +82,7 @@ static NSDictionary *kCardSuitNames;
     return [self compareWithAcesHigh:otherCard];
 }
 
+// Compare to another card, aces are high
 - (NSComparisonResult)compareWithAcesHigh:(PPPCard *)otherCard {
     if (self.number < otherCard.number) {
         return NSOrderedAscending;
@@ -90,6 +95,8 @@ static NSDictionary *kCardSuitNames;
     return NSOrderedSame;
 }
 
+
+// Check if another car is the next card in a sequence for a straight
 - (BOOL)isSequentiallySucceededByCard:(PPPCard *)otherCard {
     if (self.number == PPPCardNumberAce) {
         return otherCard.number == PPPCardNumberTwo;
@@ -101,6 +108,7 @@ static NSDictionary *kCardSuitNames;
 #pragma mark -
 #pragma mark NSObject overridden methods
 
+// When class is first used, initialize several mapping dictionarys for converting between enum values and strings
 + (void)initialize {
     kCardNumberStringMapping = @{@"2": @(PPPCardNumberTwo),
                                  @"3": @(PPPCardNumberThree),
@@ -162,6 +170,7 @@ static NSDictionary *kCardSuitNames;
     NSAssert(!regexpError, @"Regular expression error");
 }
 
+// Initialize as an invalid card
 - (id)init {
     return [self initWithNumber:PPPCardNumberInvalid suit:PPPCardSuitInvalid];
 }
@@ -169,6 +178,7 @@ static NSDictionary *kCardSuitNames;
 #pragma mark -
 #pragma mark NSObject protocol methods
 
+// Description of a PPPCard object as a 2-character string
 - (NSString *)description {
     NSString *numberString = kCardNumberInverseStringMapping[@(self.number)];
     NSString *suitString = kCardSuitInverseStringMapping[@(self.suit)];
