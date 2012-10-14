@@ -13,6 +13,8 @@
 
 @interface PPPSelectCardsViewController ()
 
+- (BOOL)selectCardsString:(NSString *)cardsString;
+
 @end
 
 @implementation PPPSelectCardsViewController
@@ -34,6 +36,34 @@
     }
     
     return _presetCards;
+}
+
+#pragma mark Instance methods
+
+// Popup an alert view when the user request entering a set of cards manually
+- (IBAction)manualEntryPressed:(UIBarButtonItem *)sender {
+    UIAlertView *manualEntryAlert = [[UIAlertView alloc] initWithTitle:@"Manual cards entry" message:@"Please enter 10 cards, separated by spaces." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    manualEntryAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [manualEntryAlert show];
+}
+
+#pragma mark Hidden instance methods
+
+// Attempt to make a deck of 10 cards out of 10 strings of 2 characters
+// If succesful, inform the main view controller and dismiss this view
+- (BOOL)selectCardsString:(NSString *)cardsString {
+    PPPCardCollection *deck = [[PPPCardCollection alloc] initWithString:cardsString];
+    
+    if (deck && deck.cards.count == 10) {
+        PPPMainViewController *mainController = (PPPMainViewController *)self.navigationController.presentingViewController;
+        [mainController setNewDeck:deck];
+        
+        [self dismissModalViewControllerAnimated:YES];
+        
+        return YES;
+    }
+    
+    return NO;
 }
 
 #pragma mark -
@@ -59,18 +89,25 @@
 #pragma mark -
 #pragma mark UITableViewDelegate protocol methods
 
-// If a set of cards is selected, inform the main view controller
-// and dismiss this view
+// Select a preset set of cards and have it parsed
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    PPPCardCollection *deck = [[PPPCardCollection alloc] initWithString:cell.textLabel.text];
-    
-    if (deck) {
-        PPPMainViewController *mainController = (PPPMainViewController *)self.navigationController.presentingViewController;
-        [mainController setNewDeck:deck];
+    [self selectCardsString:cell.textLabel.text];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate protocol methods
+
+// When the user is done typing in the string of cards, process it
+// and show a warning if the string is not valid
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex > 0) {
+        NSString *cardsString = [alertView textFieldAtIndex:0].text;
+        if (![self selectCardsString:cardsString]) {
+            UIAlertView *warningView = [[UIAlertView alloc] initWithTitle:@"Cards not valid" message:@"The input provided does not constitute a valid set of 10 cards" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningView show];
+        }
     }
-    
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -

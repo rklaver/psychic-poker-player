@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPPSelectCardsViewController : UITableViewController
+@interface PPPSelectCardsViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *presetCards;
+
+- (IBAction)manualEntryPressed:(UIBarButtonItem *)sender;
 
 @end

@@ -136,7 +136,13 @@
                         </prototypes>
                         <sections/>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select cards" id="N2k-1X-F7T"/>
+                    <navigationItem key="navigationItem" title="Select cards" id="N2k-1X-F7T">
+                        <barButtonItem key="rightBarButtonItem" title="Manual entry" id="boX-NR-xYP">
+                            <connections>
+                                <action selector="manualEntryPressed:" destination="Pcn-jI-KWJ" id="B2Z-Jo-ju3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDL-Mk-t5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +182,9 @@
         </class>
         <class className="PPPSelectCardsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PPPSelectCardsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="manualEntryPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
